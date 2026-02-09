@@ -1,0 +1,21 @@
+product_id,product_name,category,price,stock_quantity
+1001,Laptop Pro,Electronics,1299.99,50
+1002,Wireless Mouse,Electronics,29.99,200
+1003,Mechanical Keyboard,Electronics,149.99,150
+1004,27-inch Monitor,Electronics,349.99,75
+1005,USB-C Hub,Electronics,79.99,100
+1006,Noise Cancelling Headphones,Electronics,249.99,80
+1007,Webcam HD,Electronics,89.99,120
+1008,Standing Desk,Furniture,399.99,30
+1009,Ergonomic Chair,Furniture,299.99,40
+1010,Desk Lamp,Office Supplies,45.99,100
+1011,Notebook Set,Office Supplies,12.99,500
+1012,Pen Pack,Office Supplies,8.99,1000
+1013,Stapler,Office Supplies,15.99,200
+1014,Whiteboard,Office Supplies,89.99,50
+1015,Filing Cabinet,Furniture,129.99,60
+1016,Phone Case,Accessories,19.99,300
+1017,Screen Protector,Accessories,14.99,400
+1018,Laptop Bag,Accessories,49.99,150
+1019,Power Bank,Electronics,59.99,250
+1020,Bluetooth Speaker,Electronics,79.99,180

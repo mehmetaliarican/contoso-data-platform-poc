@@ -1,0 +1,21 @@
+customer_id,customer_name,email,phone,city,country,created_date
+1,John Doe,john.doe@email.com,555-0101,New York,USA,2024-01-15
+2,Jane Smith,jane.smith@email.com,555-0102,Los Angeles,USA,2024-01-16
+3,Bob Johnson,bob.j@email.com,555-0103,Chicago,USA,2024-01-17
+4,Alice Brown,alice.b@email.com,555-0104,Houston,USA,2024-01-18
+5,Charlie Wilson,charlie.w@email.com,555-0105,Phoenix,USA,2024-01-19
+6,Diana Miller,diana.m@email.com,555-0106,Philadelphia,USA,2024-01-20
+7,Edward Davis,edward.d@email.com,555-0107,San Antonio,USA,2024-01-21
+8,Fiona Garcia,fiona.g@email.com,555-0108,San Diego,USA,2024-01-22
+9,George Martinez,george.m@email.com,555-0109,Dallas,USA,2024-01-23
+10,Helen Rodriguez,helen.r@email.com,555-0110,San Jose,USA,2024-01-24
+11,Ian Lopez,ian.l@email.com,555-0111,Austin,USA,2024-01-25
+12,Julia Hernandez,julia.h@email.com,555-0112,Jacksonville,USA,2024-01-26
+13,Kevin Moore,kevin.m@email.com,555-0113,Fort Worth,USA,2024-01-27
+14,Laura Taylor,laura.t@email.com,555-0114,Columbus,USA,2024-01-28
+15,Michael Anderson,michael.a@email.com,555-0115,Charlotte,USA,2024-01-29
+16,Nancy Thomas,nancy.t@email.com,555-0116,San Francisco,USA,2024-01-30
+17,Oscar Jackson,oscar.j@email.com,555-0117,Indianapolis,USA,2024-01-31
+18,Patricia White,patricia.w@email.com,555-0118,Seattle,USA,2024-02-01
+19,Quentin Harris,quentin.h@email.com,555-0119,Denver,USA,2024-02-02
+20,Rachel Martin,rachel.m@email.com,555-0120,Washington,USA,2024-02-03

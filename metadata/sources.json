@@ -1,0 +1,39 @@
+{
+  "sources": [
+    {
+      "source_id": "customers_csv",
+      "name": "Customer CSV File",
+      "type": "csv",
+      "enabled": true,
+      "destination": {
+        "raw_path": "raw/csv/customers/",
+        "hub_table": "hub.customers"
+      }
+    },
+    {
+      "source_id": "products_csv",
+      "name": "Product CSV File",
+      "type": "csv",
+      "enabled": true,
+      "destination": {
+        "raw_path": "raw/csv/products/",
+        "hub_table": "hub.products"
+      }
+    },
+    {
+      "source_id": "sales_sql",
+      "name": "Sales OLAP Source (SQL Server)",
+      "type": "sql_server",
+      "enabled": true,
+      "connection": {
+        "server": "sql-contoso-dev-ne.database.windows.net",
+        "database": "contoso",
+        "table": "SalesFact"
+      },
+      "destination": {
+        "raw_path": "raw/sql/sales/",
+        "hub_table": "hub.sales"
+      }
+    }
+  ]
+}
