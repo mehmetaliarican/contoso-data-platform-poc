@@ -73,6 +73,14 @@ resource "azurerm_key_vault" "main" {
     key_permissions    = ["Get", "List", "Create", "Delete"]
   }
   
+  # Access policy for Azure Databricks managed identity
+  access_policy {
+    tenant_id = var.tenant_id
+    object_id = "1f0045a4-2c0d-4a5d-b6d0-eec5f761b7ee"  # AzureDatabricks
+    
+    secret_permissions = ["Get", "List"]
+  }
+  
   # Network access (allow all for PoC - restrict in production)
   network_acls {
     default_action = "Allow"

@@ -40,15 +40,17 @@ module "keyvault" {
 module "databricks" {
   source = "./modules/databricks"
 
-  resource_group_name = azurerm_resource_group.main.name
-  location            = azurerm_resource_group.main.location
-  workspace_name      = local.databricks_name
-  sku                 = var.databricks_sku
+  resource_group_name  = azurerm_resource_group.main.name
+  location             = azurerm_resource_group.main.location
+  workspace_name       = local.databricks_name
+  sku                  = var.databricks_sku
 
   create_service_principal = var.create_service_principal
 
-  key_vault_id  = module.keyvault.key_vault_id
-  key_vault_uri = module.keyvault.key_vault_uri
+  key_vault_id         = module.keyvault.key_vault_id
+  key_vault_uri        = module.keyvault.key_vault_uri
+  storage_account_name = module.storage.storage_account_name
+  storage_account_key  = module.storage.storage_account_primary_key
 
   tags = local.common_tags
 }

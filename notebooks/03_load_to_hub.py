@@ -26,14 +26,11 @@ print(f"Using catalog: {CATALOG}")
 # COMMAND ----------
 
 try:
-    username = spark.conf.get("spark.databricks.clusterUsageTags.clusterOwnerOrgId")
+    username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
 except:
-    try:
-        username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
-    except:
-        username = "user"
+    username = "mehmetaliarican@tutamail.com"
 
-metadata_path = f"/Workspace/Repos/{username}/contoso-data-platform-poc/metadata/sources.json"
+metadata_path = f"/Workspace/Users/{username}/contoso-data-platform/metadata/sources.json"
 
 try:
     with open(metadata_path, 'r') as f:

@@ -57,6 +57,17 @@ variable "key_vault_uri" {
   type        = string
 }
 
+variable "storage_account_name" {
+  description = "Storage account name for ADLS authentication"
+  type        = string
+}
+
+variable "storage_account_key" {
+  description = "Storage account primary access key"
+  type        = string
+  sensitive   = true
+}
+
 # Databricks Workspace
 resource "azurerm_databricks_workspace" "main" {
   name                        = var.workspace_name
@@ -87,16 +98,18 @@ resource "databricks_cluster" "poc" {
 
   # Required for single-node cluster
   spark_conf = {
-    "spark.databricks.cluster.profile" = "singleNode"
-    "spark.master"                     = "local[*]"
-    "spark.databricks.delta.preview.enabled" = "true"
+    "spark.databricks.cluster.profile"         = "singleNode"
+    "spark.master"                             = "local[*]"
+    "spark.databricks.delta.preview.enabled"   = "true"
+    # ADLS Gen2 authentication using storage account key
+    "fs.azure.account.key.${var.storage_account_name}.dfs.core.windows.net" = var.storage_account_key
   }
 
   custom_tags = {
     "ResourceClass" = "SingleNode"
   }
 
-  depends_on = [azurerm_databricks_workspace.main]
+  depends_on = [azurerm_databricks_workspace.main, databricks_secret_scope.kv]
 }
 
 # Outputs

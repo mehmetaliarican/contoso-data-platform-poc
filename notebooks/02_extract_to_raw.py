@@ -34,14 +34,12 @@ print(f"Storage: {storage_account}")
 # COMMAND ----------
 
 try:
-    username = spark.conf.get("spark.databricks.clusterUsageTags.clusterOwnerOrgId")
+    username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
 except:
-    try:
-        username = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
-    except:
-        username = "user"
+    username = "mehmetaliarican@tutamail.com"
 
-metadata_path = f"/Workspace/Repos/{username}/contoso-data-platform-poc/metadata/sources.json"
+base_path = f"/Workspace/Users/{username}/contoso-data-platform/metadata"
+metadata_path = f"{base_path}/sources.json"
 
 try:
     with open(metadata_path, 'r') as f:
@@ -90,7 +88,7 @@ def extract_sql_server(source):
 def extract_csv(source):
     source_id = source["source_id"]
     csv_filename = source_id.replace("_csv", "")
-    csv_path = f"/Workspace/Repos/{username}/contoso-data-platform-poc/metadata/{csv_filename}.csv"
+    csv_path = f"{base_path}/{csv_filename}.csv"
     raw_path = f"abfss://{raw_container}@{storage_account}.dfs.core.windows.net/{source_id}/"
     
     print(f"Extracting {source_id} from CSV...")

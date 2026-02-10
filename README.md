@@ -25,29 +25,14 @@ Go to Azure Portal → SQL Server → Query Editor. Login with:
 
 Run the script in `sql/setup_olap.sql`.
 
-### 3. Configure Databricks
-
-1. In Databricks, go to **Compute** → Your cluster → **Edit**
-2. **Spark Config** tab, add:
-
-```
-fs.azure.account.auth.type.YOUR_STORAGE_ACCOUNT.dfs.core.windows.net OAuth
-fs.azure.account.oauth.provider.type.YOUR_STORAGE_ACCOUNT.dfs.core.windows.net org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider
-fs.azure.account.oauth2.client.id.YOUR_STORAGE_ACCOUNT.dfs.core.windows.net {{secrets/contoso-secrets/sp-client-id}}
-fs.azure.account.oauth2.client.secret.YOUR_STORAGE_ACCOUNT.dfs.core.windows.net {{secrets/contoso-secrets/sp-client-secret}}
-fs.azure.account.oauth2.client.endpoint.YOUR_STORAGE_ACCOUNT.dfs.core.windows.net https://login.microsoftonline.com/{{secrets/contoso-secrets/sp-tenant-id}}/oauth2/token
-```
-
-3. **Restart cluster**
-
-### 4. Run Notebooks
+### 3. Run Notebooks
 
 In Databricks, run in order:
 1. `01_setup.py`
 2. `02_extract_to_raw.py`
 3. `03_load_to_hub.py`
 
-### 5. Verify
+### 4. Verify
 
 ```python
 spark.sql("SHOW TABLES IN hub").show()
